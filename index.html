@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sistema de Compras</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #3026c4;
+            font-family: 'Arial', sans-serif;
+        }
+        .banner {
+            background-color: rgba(36, 216, 75, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .banner img {
+            height: 500px;
+            margin-bottom: 10px;
+        }
+        .btn-success, .btn-primary, .btn-warning, .btn-danger {
+            transition: all 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #70745;
+            transform: scale(1.05);
+        }
+        .btn-primary:hover {
+            background-color: #007bff;
+            transform: scale(1.05);
+        }
+        .btn-warning:hover {
+            background-color: #CCc107;
+            transform: scale(1.05);
+        }
+        .btn-danger:hover {
+            background-color: #dc4545;
+            transform: scale(1.05);
+        }
+        #listTable {
+            background: rgba(160, 14, 14, 0.8);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        h2 {
+            color: #ff6347; /* Tomate */
+        }
+        h4 {
+            color: #ffc107; /* Amarelo */
+            margin: 0;
+        }
+        .highlight {
+            color: #f39c12; /* Laranja */
+        }
+        .error-message {
+            color: #dc3545; /* Vermelho */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <img src="https://www.ibid.com.br/blog/wp-content/uploads/2017/03/gestao-de-estoques-just-in-time-x-just-in-case2.png" alt="Ghost Logo">
+        <h2>SISTEMA DE COMPRAS CARRINHO - EXERCICIO ALAN PAZ</h2>
+    </div>
+
+    <div class="container mt-3">
+        <div class="form-inline mb-3">
+            <div class="form-group">
+                <input type="text" class="form-control" id="desc" placeholder="DESCRIÇÃO DO PRODUTO">
+            </div>
+            <div class="form-group mx-sm-3">
+                <input type="text" class="form-control" id="amount" placeholder="INDEX SOMA PRODUTO">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="value" placeholder="VALOR DO PRODUTO">
+            </div>
+            <span id="btnUpdate" style="display: none;">
+                <span id="inputIDUpdate"></span>
+                <button onclick="updateData();" class="btn btn-primary">SALVAR</button>
+                <button onclick="resetForm();" class="btn btn-secondary">CANCELAR</button>
+            </span>
+            <span id="btnAdd">
+                <button onclick="addData();" class="btn btn-success">ADICIONAR PRODUTO</button>
+                <button onclick="resetForm();" class="btn btn-warning">Reset DO SISTEMA</button>
+                <button onclick="deleteList();" class="btn btn-danger">Delete PRODUTO</button>
+            </span>
+        </div>
+
+        <div id="errors" class="error-message" style="display: none;"></div>
+
+        <table id="listTable" class="table table-striped">
+            <!-- Table content will be generated here -->
+        </table>
+    </div>
+
+    <nav class="navbar navbar-light bg-light fixed-bottom">
+        <div class="container">
+            <h4 class="text-center highlight">Total: <span id="totalValue">$ 0,00</span></h4>
+        </div>
+    </nav>
+
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
